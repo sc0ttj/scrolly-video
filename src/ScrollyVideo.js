@@ -64,6 +64,8 @@ class ScrollyVideo {
     this.trackScroll = trackScroll;
     this.debug = debug;
 
+    this.scrollPercent = 0.0; // The scroll progress as a range 0.0 to 1.0
+
     // Create the initial video object. Even if we are going to use webcodecs,
     // we start with a paused video object
     // eslint-disable-next-line no-undef
@@ -98,9 +100,10 @@ class ScrollyVideo {
     if (cover) this.setCoverStyle(this.video);
 
     // Detect webkit (safari), because webkit requires special attention
-    const browserEngine = (new UAParser()).getEngine();
+    this.browserEngine = (new UAParser()).getEngine();
+    if (debug) console.log('browserEngine', this.browserEngine);
     // eslint-disable-next-line no-undef
-    this.isSafari = browserEngine.name === 'WebKit';
+    this.isSafari = this.browserEngine.name === 'WebKit';
     if (debug && this.isSafari) console.info('Safari browser detected');
 
     // Initialize state variables
@@ -121,7 +124,10 @@ class ScrollyVideo {
         // eslint-disable-next-line no-undef
         / (containerBoundingClientRect.height - window.innerHeight);
 
+      this.scrollPercent = scrollPercent;
+
       if (this.debug) console.info('ScrollyVideo scrolled to', scrollPercent);
+
 
       // Set the target time percent
       this.setTargetTimePercent(scrollPercent, jump);
@@ -161,6 +167,8 @@ class ScrollyVideo {
 
     // Calls decode video to attempt webcodecs method
     this.decodeVideo();
+
+    return this;
   }
 
   /**
