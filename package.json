@@ -1,8 +1,8 @@
 {
   "name": "scrolly-video",
   "version": "0.0.17",
-  "description": "A component for scroll-based (or other externally controlled) playback.",
-  "main": "dist/scrolly-video.js",
+  "description": "A component for scroll-based (or other externally controlled) playback.. forked.",
+  "main": "dist/ScrollyVideo.js",
   "types": "dist/ScrollyVideo.d.ts",
   "scripts": {
     "dev": "DOCS_SITE=true rollup -c -w",
@@ -17,7 +17,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/dkaoster/scrolly-video.git"
+    "url": "git+https://github.com/sc0ttj/scrolly-video.git"
   },
   "keywords": [
     "scroll",
@@ -30,9 +30,9 @@
   "author": "Daniel Kao",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/dkaoster/scrolly-video/issues"
+    "url": "https://github.com/sc0ttj/scrolly-video/issues"
   },
-  "homepage": "https://github.com/dkaoster/scrolly-video#readme",
+  "homepage": "https://github.com/sc0ttj/scrolly-video#readme",
   "dependencies": {
     "mp4box": "^0.4.9",
     "ua-parser-js": "^1.0.2"
